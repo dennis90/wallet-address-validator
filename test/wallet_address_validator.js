@@ -29,6 +29,11 @@ describe('WAValidator.validate()', function () {
             valid('mzBc4XEFSdzCDcTxAgf6EZXgsZWpztRhef', 'bitcoin', 'testnet');
             valid('mzBc4XEFSdzCDcTxAgf6EZXgsZWpztRhef', 'bitcoin', 'both');
 
+            // segwit addresses
+            valid('tb1qew3rpu4pvr0pftc8qtllll2cyam0p5u6rm54fd', 'bitcoin', 'testnet');
+            valid('tb1qew3rpu4pvr0pftc8qtllll2cyam0p5u6rm54fd', 'bitcoin', 'both');
+            invalid('tb1qew3rpu4pvr0pftc8qtllll2cyam0p5u6rm54fd', 'bitcoin', 'prod');
+
             valid('1SQHtwR5oJRKLfiWQ2APsAd9miUc4k2ez');
             valid('116CGDLddrZhMrTwhCVJXtXQpxygTT1kHd');
 
