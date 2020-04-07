@@ -77,6 +77,12 @@ describe('WAValidator.validate()', function () {
             // p2sh addresses
             valid('3NJZLcZEEYBpxYEUGewU4knsQRn1WM5Fkt', 'bitcoincash');
             valid('2MxKEf2su6FGAUfCEAHreGFQvEYrfYNHvL7', 'bitcoincash', 'testnet');
+
+            // cashaddr
+            valid('bitcoincash:qzxf0wl63ahx6jsxu8uuldcw7n5aatwppvnteraqaw', 'bitcoincash', 'prod');
+            valid('bitcoincash:qzxf0wl63ahx6jsxu8uuldcw7n5aatwppvnteraqaw', 'bitcoincash', 'both');
+            valid('bchtest:qrxvrxxptkp5f3ea5ea825y6sk50ggnxxc4fum8kup', 'bitcoincash', 'testnet')
+            valid('bchtest:qrxvrxxptkp5f3ea5ea825y6sk50ggnxxc4fum8kup', 'bitcoincash', 'both')
         });
 
         it('should return true for correct litecoin addresses', function () {
@@ -408,6 +414,10 @@ describe('WAValidator.validate()', function () {
 
         it('should return false for incorrect bitcoincash addresses', function () {
             commonTests('bitcoincash');
+            invalid('1DpPNYJXSxPBBgRuckvcfJQVux85HtnZuY', 'bitcoincash', 'testnet');
+            invalid('bitcoincash:qzxf0wl63ahx6jsxu8uuldcw7n5aatwppvnteraqaw', 'bitcoincash', 'testnet');
+            invalid('mzBc4XEFSdzCDcTxAgf6EZXgsZWpztRhef', 'bitcoincash', 'prod');
+            invalid('bchtest:qrxvrxxptkp5f3ea5ea825y6sk50ggnxxc4fum8kup', 'bitcoincash', 'prod')
         });
 
         it('should return false for incorrect litecoin addresses', function () {

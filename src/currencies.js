@@ -1,8 +1,9 @@
-var XRPValidator = require('./ripple_validator');
-var ETHValidator = require('./ethereum_validator');
+var BCHValidator = require('./bitcoincash_validator');
 var BTCValidator = require('./bitcoin_validator');
-var XMRValidator = require('./monero_validator');
+var ETHValidator = require('./ethereum_validator');
 var NANOValidator = require('./nano_validator');
+var XMRValidator = require('./monero_validator');
+var XRPValidator = require('./ripple_validator');
 
 // defines P2PKH and P2SH address types for standard (prod) and testnet networks
 var CURRENCIES = [{
@@ -14,7 +15,7 @@ var CURRENCIES = [{
     name: 'bitcoincash',
     symbol: 'bch',
     addressTypes: {prod: ['00', '05'], testnet: ['6f', 'c4']},
-    validator: BTCValidator
+    validator: BCHValidator
 },{
     name: 'litecoin',
     symbol: 'ltc',
