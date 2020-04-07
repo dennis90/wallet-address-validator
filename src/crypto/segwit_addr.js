@@ -70,13 +70,21 @@ function encode (hrp, version, program) {
   return ret;
 }
 
-function isValidAddress(address, hrp) {
-    var hrp = hrp || 'bc';
-    var ret = decode(hrp, address);
+function isValidAddress(address, hrp, networkType) {
+    var hrp = hrp;
+    var ret = null;
 
-    if (ret === null) {
-        hrp = 'tb';
+    if (networkType === 'testnet' || networkType === 'prod') {
+        hrp = hrp || networkType === 'testnet' ? 'tb' : 'bc';
         ret = decode(hrp, address);
+    } else {
+        hrp = hrp || 'bc';
+        ret = decode(hrp, address);
+
+        if (ret === null) {
+            hrp = 'tb';
+            ret = decode(hrp, address);
+        }
     }
 
     if (ret === null) {
